@@ -21,8 +21,8 @@ public class LeetCode268 {
 
     public static int missingNumber(int[] nums) {
         int sum = nums.length % 2 == 0 ? (nums.length + 1) * (nums.length / 2) : (nums.length) * ((nums.length - 1) / 2) + nums.length;
-        for (Integer num : nums) {
-            sum -= num;
+        for (int i = 0; i < nums.length; i++) {
+            sum -= nums[i];
         }
         return sum;
     }
