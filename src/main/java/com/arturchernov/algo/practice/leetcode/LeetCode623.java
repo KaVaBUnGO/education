@@ -1,8 +1,5 @@
 package com.arturchernov.algo.practice.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author Artur Chernov
  * <p>
@@ -28,42 +25,35 @@ public class LeetCode623 {
     }
 
     public static TreeNode addOneRow(TreeNode root, int v, int d) {
-        List<TreeNode> cur = new ArrayList<>();
-        cur.add(root);
         int lvl = 1;
         if (d == 1) {
             return new TreeNode(v, root, null);
         }
-        while (lvl != d) {
-            cur = getNextLevel(cur, v, ++lvl == d);
-        }
+        run(root, v, lvl, d);
+
         return root;
     }
 
-    public static List<TreeNode> getNextLevel(List<TreeNode> nodes, int v, boolean isInsert) {
-        List<TreeNode> newNodes = new ArrayList<>();
-        for (TreeNode node : nodes) {
-            if (!isInsert) {
-                if (node.left != null) {
-                    newNodes.add(node.left);
-                }
-                if (node.right != null) {
-                    newNodes.add(node.right);
-                }
+    public static void run(TreeNode node, int v, int lvl, int d) {
+        if (lvl + 1 != d) {
+            if (node.left != null) {
+                run(node.left, v, lvl + 1, d);
+            }
+            if (node.right != null) {
+                run(node.right, v, lvl + 1, d);
+            }
+        } else {
+            if (node.left != null) {
+                node.left = new TreeNode(v, node.left, null);
             } else {
-                if (node.left != null) {
-                    node.left = new TreeNode(v, node.left, null);
-                } else {
-                    node.left = new TreeNode(v);
-                }
-                if (node.right != null) {
-                    node.right = new TreeNode(v, null, node.right);
-                } else {
-                    node.right = new TreeNode(v);
-                }
+                node.left = new TreeNode(v);
+            }
+            if (node.right != null) {
+                node.right = new TreeNode(v, null, node.right);
+            } else {
+                node.right = new TreeNode(v);
             }
         }
-        return newNodes;
     }
 
     public static class TreeNode {
