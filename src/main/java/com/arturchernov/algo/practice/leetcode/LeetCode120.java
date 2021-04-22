@@ -55,14 +55,13 @@ public class LeetCode120 {
     }
 
     public static int minimumTotal(List<List<Integer>> triangle) {
-        if (triangle.size() > 1) {
-            for (int row = triangle.size() - 2; row >= 0; row--) {
-                for (int col = 0; col < triangle.get(row).size(); col++) {
-                    triangle.get(row).set(col, Math.min(
-                            triangle.get(row).get(col) + triangle.get(row + 1).get(col),
-                            triangle.get(row).get(col) + triangle.get(row + 1).get(col + 1)
-                    ));
-                }
+        int height = triangle.size();
+        for (int row = height - 2; row >= 0; row--) {
+            for (int col = 0; col <= row; col++) {
+                triangle.get(row).set(col, triangle.get(row).get(col) + Math.min(
+                        triangle.get(row + 1).get(col),
+                        triangle.get(row + 1).get(col + 1)
+                ));
             }
         }
         return triangle.get(0).get(0);
