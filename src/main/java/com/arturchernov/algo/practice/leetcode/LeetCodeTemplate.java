@@ -10,7 +10,7 @@ package com.arturchernov.algo.practice.leetcode;
 public class LeetCodeTemplate implements Runnable {
 
     public static void main(String[] args) {
-        new Thread(new LeetCodeTemplate()).run();
+        new Thread(new LeetCodeTemplate()).start();
     }
 
     @Override
