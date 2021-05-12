@@ -11,8 +11,9 @@ import java.util.List;
  * @author Artur Chernov
  */
 public final class LeetCodeUtils {
-    /* Build matrix from String input, like as [[x, x, x], [x, x,x], [x, x, x]] */
+    /* Build matrix from String input, like as [[x, x, x], [x, x, x], [x, x, x]] */
     public static int[][] buildMatrix(String s) {
+        s = s.replace(" ", "");
         s = s.substring(2, s.length() - 2);
         String[] rows = s.split("],\\[");
         int[][] res = new int[rows.length][];
