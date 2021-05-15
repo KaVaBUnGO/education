@@ -51,14 +51,14 @@ public class LeetCode745 implements Runnable {
         System.out.println(wordFilter.f("a", "e"));
     }
 
-    static class TreeNode {
-        public TreeNode[] children = new TreeNode[26];
+    static class TreeNode745 {
+        public TreeNode745[] children = new TreeNode745[26];
         public List<Integer> vals = new ArrayList<>();
     }
 
     static class WordFilter {
-        private TreeNode pRoot = new TreeNode();
-        private TreeNode sRoot = new TreeNode();
+        private TreeNode745 pRoot = new TreeNode745();
+        private TreeNode745 sRoot = new TreeNode745();
 
         public WordFilter(String[] words) {
             int size = words.length;
@@ -69,18 +69,18 @@ public class LeetCode745 implements Runnable {
             }
         }
 
-        private void insert(char[] word, int index, TreeNode trie, int start, int end, int step) {
+        private void insert(char[] word, int index, TreeNode745 trie, int start, int end, int step) {
             for (int i = start; i != end; i += step) {
                 int c = word[i] - 'a';
                 if (trie.children[c] == null) {
-                    trie.children[c] = new TreeNode();
+                    trie.children[c] = new TreeNode745();
                 }
                 trie = trie.children[c];
                 trie.vals.add(index);
             }
         }
 
-        private List<Integer> find(char[] w, TreeNode trie, int start, int end, int step) {
+        private List<Integer> find(char[] w, TreeNode745 trie, int start, int end, int step) {
             for (int i = start; i != end; i += step) {
                 trie = trie.children[w[i] - 'a'];
                 if (trie == null) {

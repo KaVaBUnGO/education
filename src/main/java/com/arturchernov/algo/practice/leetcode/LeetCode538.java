@@ -1,5 +1,7 @@
 package com.arturchernov.algo.practice.leetcode;
 
+import com.arturchernov.algo.practice.leetcode.commons.TreeNode;
+
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
@@ -79,23 +81,4 @@ public class LeetCode538 {
         return root;
     }
 
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 }

@@ -1,5 +1,7 @@
 package com.arturchernov.algo.practice.leetcode;
 
+import com.arturchernov.algo.practice.leetcode.commons.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,25 +55,5 @@ public class LeetCode971 {
             return find(node.right, voyage, ans) && find(node.left, voyage, ans);
         }
         return find(node.left, voyage, ans) && find(node.right, voyage, ans);
-    }
-
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }

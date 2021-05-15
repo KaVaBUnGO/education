@@ -1,5 +1,7 @@
 package com.arturchernov.algo.practice.leetcode;
 
+import com.arturchernov.algo.practice.leetcode.commons.TreeNode;
+
 /**
  * @author Artur Chernov
  * <p>
@@ -53,34 +55,6 @@ public class LeetCode623 {
             } else {
                 node.right = new TreeNode(v);
             }
-        }
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-
-        @Override
-        public String toString() {
-            return "TreeNode{" +
-                    "val=" + val +
-                    ", left=" + left +
-                    ", right=" + right +
-                    "}";
         }
     }
 }
