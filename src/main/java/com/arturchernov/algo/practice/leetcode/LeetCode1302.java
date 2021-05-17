@@ -16,41 +16,11 @@ public class LeetCode1302 {
 
     public static void main(String[] args) {
         Integer[] a = new Integer[]{1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8};
-        System.out.println(deepestLeavesSum(build(a)));
+        System.out.println(deepestLeavesSum(LeetCodeUtils.buildTree(a)));
         Integer[] a2 = new Integer[]{6, 7, 8, 2, 7, 1, 3, 9, null, 1, 4, null, null, null, 5};
-        System.out.println(deepestLeavesSum(build(a2)));
+        System.out.println(deepestLeavesSum(LeetCodeUtils.buildTree(a2)));
         Integer[] a3 = new Integer[]{1};
-        System.out.println(deepestLeavesSum(build(a3)));
-    }
-
-    private static TreeNode build(Integer[] a) {
-        TreeNode root = new TreeNode(a[0]);
-        List<TreeNode> list = new ArrayList<>();
-        list.add(root);
-        int it = 1;
-        while (it < a.length) {
-            List<TreeNode> newList = new ArrayList<>();
-            for (TreeNode node : list) {
-                if (a[it] != null) {
-                    node.left = new TreeNode(a[it++]);
-                } else {
-                    it++;
-                }
-                if (a[it] != null) {
-                    node.right = new TreeNode(a[it++]);
-                } else {
-                    it++;
-                }
-                if (node.left != null) {
-                    newList.add(node.left);
-                }
-                if (node.right != null) {
-                    newList.add(node.right);
-                }
-            }
-            list = newList;
-        }
-        return root;
+        System.out.println(deepestLeavesSum(LeetCodeUtils.buildTree(a3)));
     }
 
     public static int deepestLeavesSum(TreeNode root) {

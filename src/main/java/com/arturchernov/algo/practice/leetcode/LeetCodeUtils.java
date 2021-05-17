@@ -70,4 +70,35 @@ public final class LeetCodeUtils {
         return res;
     }
 
+    // TODO(Chernov Artur): refactor it later
+    public static TreeNode buildTree(Integer[] a) {
+        TreeNode root = new TreeNode(a[0]);
+        List<TreeNode> list = new ArrayList<>();
+        list.add(root);
+        int it = 1;
+        while (it < a.length) {
+            List<TreeNode> newList = new ArrayList<>();
+            for (TreeNode node : list) {
+                if (a[it] != null) {
+                    node.left = new TreeNode(a[it++]);
+                } else {
+                    it++;
+                }
+                if (a[it] != null) {
+                    node.right = new TreeNode(a[it++]);
+                } else {
+                    it++;
+                }
+                if (node.left != null) {
+                    newList.add(node.left);
+                }
+                if (node.right != null) {
+                    newList.add(node.right);
+                }
+            }
+            list = newList;
+        }
+        return root;
+    }
+
 }
