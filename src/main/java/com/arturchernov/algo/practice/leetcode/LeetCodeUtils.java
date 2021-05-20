@@ -72,6 +72,7 @@ public final class LeetCodeUtils {
 
     // TODO(Chernov Artur): refactor it later
     public static TreeNode buildTree(Integer[] a) {
+        if (a.length == 0) return null;
         TreeNode root = new TreeNode(a[0]);
         List<TreeNode> list = new ArrayList<>();
         list.add(root);
