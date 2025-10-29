@@ -1,4 +1,4 @@
-package com.arturchernov.algo.practice.leetcode;
+package com.arturchernov.algo.practice.leetcode.template;
 
 /**
  * @author Artur Chernov
